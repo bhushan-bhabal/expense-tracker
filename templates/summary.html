@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<a href="/"><button class="back">← Back</button></a>
+
+<div class="card">
+
+<h2>Expense Summary</h2>
+<div class="stats">
+
+<div class="stat-card">
+<h4>Today</h4>
+<p>₹ {{ today_total }}</p>
+</div>
+
+<div class="stat-card">
+<h4>This Month</h4>
+<p>₹ {{ month_total }}</p>
+</div>
+
+<div class="stat-card">
+<h4>This Year</h4>
+<p>₹ {{ year_total }}</p>
+</div>
+
+</div>
+
+<div class="table-card">
+<table class="summary-table">
+
+<tr>
+<th>Category</th>
+<th>Total Spent</th>
+</tr>
+
+{% for row in summary %}
+
+<tr>
+<td>{{ row.name }}</td>
+<td>{{ row.total }}</td>
+</tr>
+
+{% endfor %}
+
+<tr class="total">
+<td>Overall Total</td>
+<td>{{ overall_total }}</td>
+</tr>
+
+</table>
+</div>
+</div>
+
+{% endblock %}

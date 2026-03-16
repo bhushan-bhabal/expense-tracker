@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+
+<h2>Total Expenses</h2>
+
+<h1>₹ {{ total_expense }}</h1>
+
+</div>
+
+<br>
+
+<div class="card">
+
+<h2>All Expenses</h2>
+
+<div class="top-actions">
+
+<a href="/add">
+<button>Add Expense</button>
+</a>
+
+<a href="/summary">
+<button class="summary-btn">Expense Summary</button>
+</a>
+
+</div>
+
+<table>
+
+<tr>
+<th>Category</th>
+<th>Amount</th>
+<th>Description</th>
+<th>Date</th>
+<th>Action</th>
+</tr>
+
+{% for expense in expenses %}
+
+<tr>
+<td>{{ expense.name }}</td>
+<td>{{ expense.amount }}</td>
+<td>{{ expense.description }}</td>
+<td>{{ expense.expense_date }}</td>
+<td class="action-buttons">
+
+<a href="/edit/{{ expense.id }}">
+<button class="icon-btn edit">
+<i class="fa-solid fa-pen"></i>
+</button>
+</a>
+
+<a href="/delete/{{ expense.id }}">
+<button class="icon-btn delete">
+<i class="fa-solid fa-trash"></i>
+</button>
+</a>
+
+</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+{% endblock %}
