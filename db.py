@@ -1,10 +1,12 @@
 import mysql.connector
+import os
 
 db = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="",
-    database="expense_tracker",
+    host=os.getenv("MYSQLHOST"),
+    user=os.getenv("MYSQLUSER"),
+    password=os.getenv("MYSQLPASSWORD"),
+    database=os.getenv("MYSQLDATABASE"),
+    port=os.getenv("MYSQLPORT"),
     autocommit=True
 )
 
