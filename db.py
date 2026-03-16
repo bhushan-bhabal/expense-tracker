@@ -5,7 +5,7 @@ db = mysql.connector.connect(
     host=os.getenv("MYSQLHOST"),
     user=os.getenv("MYSQLUSER"),
     password=os.getenv("MYSQLPASSWORD"),
-    database=os.getenv("MYSQLDATABASE"),
+    database=os.getenv("MYSQL_DATABASE"),
     port=os.getenv("MYSQLPORT"),
     autocommit=True
 )
