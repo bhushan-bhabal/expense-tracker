@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, flash
 from db import cursor, db
 
 app = Flask(__name__)
-app.secret_key = "expense_tracker_secret"
+app.secret_key = os.getenv("SECRET_KEY")
 
 @app.route("/")
 @app.route("/expenses")
@@ -149,4 +149,4 @@ def edit_expense(id):
     )
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
