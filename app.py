@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, flash
 from db import cursor, db
+import os
 
 app = Flask(__name__)
 app.secret_key = os.getenv("SECRET_KEY")
